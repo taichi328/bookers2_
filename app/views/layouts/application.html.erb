@@ -8,11 +8,12 @@
     
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
             <span>Bookers</span>
@@ -24,30 +25,30 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'Home',user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'Home',user_path(current_user.id), class: 'nav-link text-white' %>
               
             </li>
             <li class="nav-item">
-              <%= link_to 'Users', about_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Users', about_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Books', new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Books', new_user_registration_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Log aut',destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to 'Log aut',destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to 'Home', root_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Home', root_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'About', about_path, class: 'nav-link text-dark' %>
+              <%= link_to 'About', about_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Log in', new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Log in', new_user_session_path, class: 'nav-link text' %>
             </li>
             <% end %>
             </ul>
@@ -68,7 +69,7 @@
           </div>
         </div>
       </div>
-    </footer>aaaaa
+    </footer>
 
   </body>
 </html>
