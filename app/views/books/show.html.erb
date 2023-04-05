@@ -1,2 +1,27 @@
-show
-<
+<%= render 'list', book: @book %>
+
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <a href = "/books">
+          <p><%= image_tag current_user.get_profile_image(100,100) %></p>
+            <br>
+            <%= current_user.name %>
+          </a>
+        </td>
+        <td>
+          <a href = "/books/:id">
+            
+          </a>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
