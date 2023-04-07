@@ -18,7 +18,7 @@
       </table>
 
       <!--% if @user == current_user %>-->
-      <%= link_to "edit", edit_user_path(@user), class: "btn btn-outline-secondary btn-block" %>
+      <%= link_to "edit", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
       <!--% end %>-->
 
       <%= form_with model: book do |f| %>
