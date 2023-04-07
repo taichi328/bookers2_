@@ -1,4 +1,4 @@
-<%= render 'list', book: @book %>
+<%= render 'list', book: @book2 %>
 
 <div class="col-md-8 offset-md-1">
   <h2>Book detail</h2>
@@ -7,20 +7,31 @@
     <tbody>
       <tr>
         <td>
-          <a href = "/books">
+          <%= link_to books_path do %>
           <p><%= image_tag current_user.get_profile_image(100,100) %></p>
-            <br>
-            <%= current_user.name %>
-          </a>
+          <br>
+          <%= current_user.name %>
+          <% end %>
         </td>
         <td>
-          <a href = "/books/:id">
-            
-          </a>
+          <%= link_to book_path do %>
+            <%= @book.title %>
+          <% end %>
         </td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <%= @book.body %>
+        </td>
+
+        <% if @book.user == current_user %>
+        <td>
+          <%= link_to edit_book_path do %>
+          <div class="btn btn-success">edit</div>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Destroy", book_path(@book.id), class: "btn btn-sm btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        </td>
+        <% end %>
       </tr>
     </tbody>
   </table>
