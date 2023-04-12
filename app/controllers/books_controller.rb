@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  
+
   def new
 
   end
 
   def create
+    @user = current_user
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
@@ -20,12 +21,13 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
-
+    @user = current_user
   end
 
   def show
     @book = Book.find(params[:id])
     @book2 = Book.new
+    @user = @book.user
   end
 
   def edit
@@ -59,7 +61,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :image, :body)
   end
-  
+
   def correct_user
     @book = Book.find(params[:id])
     @user = @book.user

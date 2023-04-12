@@ -3,11 +3,13 @@ class UsersController < ApplicationController
   def index
     @book = Book.new
     @users = User.all
+    @user = current_user
   end
 
   def show
     @book = Book.new
-    @books = Book.all
+    @user = User.find(params[:id])
+    @books = @user.books
   end
 
   def edit
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
     if @user == current_user
        render "edit"
     else
-       redirect_to books_path
+       redirect_to user_path(current_user.id)
     end
   end
 
